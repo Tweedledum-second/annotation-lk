@@ -8,15 +8,15 @@ public class A {
     @AppConfig
     static public Integer port;
 
-    @AppConfig(defValue="my-name")
-    static private String serverName;
+    @AppConfig(defValue="?")
+    static private String[] intArray;
 
     @Override
     public String toString() {
         return "A{" +
                 "host='" + host + '\'' +
                 ", port=" + port +
-                ", name=" + serverName +
+                ", sth=" + java.util.Arrays.toString(intArray) +
                 '}';
     }
 }

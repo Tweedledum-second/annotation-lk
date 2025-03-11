@@ -15,18 +15,6 @@ public class AppConfigWorker {
 
     private static Logger logger = Logger.getLogger(AppConfigWorker.class.getName());
     
-    public static Object convertStringArrayToPrimitiveArray(String[] stringArray, Class<?> targetType) {
-        if (targetType == int.class) {
-            return convertToIntArray(stringArray);
-        } else if (targetType == double.class) {
-            return convertToDoubleArray(stringArray);
-        } else if (targetType == float.class) {
-            return convertToFloatArray(stringArray);
-        } else {
-            throw new IllegalArgumentException("Неподдерживаемый примитивный тип: " + targetType.getName());
-        }
-    }
-    
     private static Integer[] convertToIntegerArray(String[] stringArray)
     {
         Integer[] integerArray = new Integer[stringArray.length];
@@ -90,9 +78,9 @@ public class AppConfigWorker {
             } else if (type.equals(Integer[].class)) { 
                 return convertToIntegerArray(stringArray);
             } else if (type.equals(Float[].class)) {
-                return convertToFloatArray(stringArray);
+                return convertToFloatClassArray(stringArray);
             } else if (type.equals(Double.class)) {
-                return convertToDoubleArray(stringArray);
+                return convertToDoubleClassArray(stringArray);
             } else if (type.equals(int[].class)) {
                 return convertToIntArray(stringArray);
             } else if (type.equals(double[].class)) {
